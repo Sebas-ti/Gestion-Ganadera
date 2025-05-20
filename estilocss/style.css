@@ -1,0 +1,154 @@
+:root {
+    /* Colores basados en el logo (ajustados para contraste) */
+    --color-primary-green: #34D15E; /* Un verde vibrante del logo */
+    --color-primary-blue: #2A7FE6;  /* Un azul vibrante del logo */
+    --color-light-text: #ECF0F1;    /* Blanco casi puro para el texto */
+    --color-dark-text: #2C3E50;     /* Azul oscuro para el texto en fondos claros */
+    --color-accent: #1ABC9C;        /* Un color turquesa/verde azulado para acentos */
+}
+
+body {
+    padding-top: 70px; /* Espacio para que el contenido no quede oculto bajo la barra de navegación fija */
+    font-family: 'Montserrat', sans-serif; /* Una fuente más moderna para el cuerpo */
+    color: var(--color-dark-text);
+    overflow-x: hidden; /* Evita el scroll horizontal no deseado */
+}
+
+/* Estilos de la barra de navegación personalizada */
+.custom-navbar {
+    background: linear-gradient(90deg, var(--color-primary-green) 0%, var(--color-primary-blue) 100%); /* Degradado de verde a azul */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra más pronunciada para un efecto flotante */
+}
+
+.navbar-brand .navbar-title {
+    font-family: 'Bebas Neue', sans-serif; /* Fuente llamativa para el título */
+    color: var(--color-light-text); /* Color de texto claro para contraste */
+    font-size: 1.75rem; /* Reducido ligeramente para ahorrar espacio */
+    margin-left: 8px; /* Reducido ligeramente */
+    letter-spacing: 1px; /* Ligeramente reducido */
+    white-space: nowrap; /* Evita que el título se rompa en varias líneas */
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5); /* Borde claro para el botón del toggler */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Icono del toggler blanco */
+}
+
+
+.navbar-nav .nav-link {
+    color: var(--color-light-text) !important; /* Color de texto para los enlaces */
+    font-weight: 500;
+    margin-right: 15px; /* Reducido para ahorrar espacio */
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Transición suave para hover y un pequeño efecto de escala */
+    white-space: nowrap; /* Evita que los enlaces de navegación se rompan */
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--color-accent) !important; /* Color al pasar el ratón por encima */
+    transform: translateY(-2px); /* Ligeramente elevado al pasar el mouse */
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--color-accent) !important; /* Color para el enlace activo */
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-accent); /* Una línea debajo del enlace activo */
+    padding-bottom: 3px;
+}
+
+/* Estilos para los botones de acción */
+.btn-outline-custom {
+    color: var(--color-light-text);
+    border-color: var(--color-light-text);
+    transition: all 0.3s ease-in-out;
+    padding: 7px 18px; /* Ligeramente reducido */
+    border-radius: 20px; /* Bordes redondeados */
+    font-size: 0.95rem; /* Pequeña reducción del tamaño de fuente */
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--color-light-text);
+    color: var(--color-primary-blue); /* Cambia el color del texto al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+.btn-custom-primary {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-dark-text); /* Texto oscuro para el botón de registro */
+    transition: all 0.3s ease-in-out;
+    padding: 7px 18px; /* Ligeramente reducido */
+    border-radius: 20px; /* Bordes redondeados */
+    font-weight: 600;
+    font-size: 0.95rem; /* Pequeña reducción del tamaño de fuente */
+    margin-right: 15px; /* Reducido el margen a la derecha de este botón */
+}
+
+.btn-custom-primary:hover {
+    background-color: #16A085; /* Un tono un poco más oscuro al pasar el ratón */
+    border-color: #16A085;
+    transform: translateY(-2px);
+}
+
+/* Estilos para los íconos sociales */
+.social-icon {
+    color: var(--color-light-text);
+    font-size: 1.4rem; /* Reducido ligeramente */
+    margin-left: 15px; /* Reducido el margen entre íconos */
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    white-space: nowrap; /* Evita que los iconos se rompan */
+}
+
+.social-icon:hover {
+    color: var(--color-accent); /* Color al pasar el ratón por encima */
+    transform: scale(1.1); /* Efecto de crecimiento al pasar el mouse */
+}
+
+/* Medias queries para manejar pantallas aún más pequeñas (desktops o tablets en modo horizontal) */
+@media (max-width: 1200px) { /* Para pantallas entre 992px (lg) y 1200px */
+    .navbar-brand .navbar-title {
+        font-size: 1.6rem;
+    }
+    .navbar-nav .nav-link {
+        margin-right: 12px;
+        font-size: 0.95rem;
+    }
+    .btn-outline-custom,
+    .btn-custom-primary {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+    .social-icon {
+        font-size: 1.3rem;
+        margin-left: 12px;
+    }
+}
+
+/* Puedes añadir más media queries si el problema persiste en rangos específicos */
+@media (max-width: 991.98px) { /* Este es el breakpoint 'lg' de Bootstrap */
+    /* Cuando la barra se colapsa, los elementos se apilan verticalmente */
+    .navbar-nav {
+        margin-top: 10px;
+    }
+    .navbar-nav .nav-item {
+        margin-bottom: 5px;
+    }
+    .d-flex.align-items-center {
+        flex-direction: column; /* Apila botones y redes sociales verticalmente */
+        align-items: flex-start !important;
+        margin-top: 10px;
+    }
+    .btn-outline-custom,
+    .btn-custom-primary {
+        width: 100%; /* Botones de ancho completo */
+        margin-right: 0 !important;
+        margin-bottom: 10px; /* Espacio entre botones */
+    }
+    .social-icon {
+        margin-left: 0;
+        margin-right: 15px; /* Añade margen a la derecha para que no se peguen si están en línea */
+        margin-top: 10px; /* Espacio entre los botones y los iconos sociales */
+    }
+}
