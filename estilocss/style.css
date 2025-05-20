@@ -1,93 +1,99 @@
+/* Colores y variables (mantener al principio) */
 :root {
-    /* Colores basados en el logo (ajustados para contraste) */
-    --color-primary-green: #34D15E; /* Un verde vibrante del logo */
-    --color-primary-blue: #2A7FE6;  /* Un azul vibrante del logo */
-    --color-light-text: #ECF0F1;    /* Blanco casi puro para el texto */
-    --color-dark-text: #2C3E50;     /* Azul oscuro para el texto en fondos claros */
-    --color-accent: #1ABC9C;        /* Un color turquesa/verde azulado para acentos */
+    --color-primary-green: #34D15E;
+    --color-primary-blue: #2A7FE6;
+    --color-light-text: #ECF0F1;
+    --color-dark-text: #2C3E50;
+    --color-accent: #1ABC9C;
+    --color-gradient-start: #2A7FE6; /* Esto es para el body/hero de login/registro */
+    --color-gradient-end: #34D15E;   /* Esto es para el body/hero de login/registro */
 }
 
 body {
-    padding-top: 70px; /* Espacio para que el contenido no quede oculto bajo la barra de navegación fija */
-    font-family: 'Montserrat', sans-serif; /* Una fuente más moderna para el cuerpo */
+    padding-top: 70px; /* Asegúrate de que este padding sea suficiente para tu barra de navegación fija */
+    font-family: 'Montserrat', sans-serif;
     color: var(--color-dark-text);
-    overflow-x: hidden; /* Evita el scroll horizontal no deseado */
+    overflow-x: hidden;
+    /* NO debe haber background: linear-gradient aquí si solo lo quieres en el hero */
+    /* Si tienes un background global para el body, asegúrate de que no sobrescriba la navbar */
 }
 
-/* Estilos de la barra de navegación personalizada */
+/* ------------------------------------------- */
+/* ESTILOS DE LA BARRA DE NAVEGACIÓN (Navbar) */
+/* ------------------------------------------- */
 .custom-navbar {
-    background: linear-gradient(90deg, var(--color-primary-green) 0%, var(--color-primary-blue) 100%); /* Degradado de verde a azul */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra más pronunciada para un efecto flotante */
+    /* ESTE ES EL FONDO DE LA BARRA DE NAVEGACIÓN */
+    background: linear-gradient(90deg, var(--color-primary-green) 0%, var(--color-primary-blue) 100%) !important; /* Añadí !important para asegurar la prevalencia */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .navbar-brand .navbar-title {
-    font-family: 'Bebas Neue', sans-serif; /* Fuente llamativa para el título */
-    color: var(--color-light-text); /* Color de texto claro para contraste */
-    font-size: 1.75rem; /* Reducido ligeramente para ahorrar espacio */
-    margin-left: 8px; /* Reducido ligeramente */
-    letter-spacing: 1px; /* Ligeramente reducido */
-    white-space: nowrap; /* Evita que el título se rompa en varias líneas */
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--color-light-text);
+    font-size: 1.75rem;
+    margin-left: 8px;
+    letter-spacing: 1px;
+    white-space: nowrap;
 }
 
 .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.5); /* Borde claro para el botón del toggler */
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Icono del toggler blanco */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-
 .navbar-nav .nav-link {
-    color: var(--color-light-text) !important; /* Color de texto para los enlaces */
+    color: var(--color-light-text) !important;
     font-weight: 500;
-    margin-right: 15px; /* Reducido para ahorrar espacio */
-    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Transición suave para hover y un pequeño efecto de escala */
-    white-space: nowrap; /* Evita que los enlaces de navegación se rompan */
+    margin-right: 15px;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    white-space: nowrap;
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--color-accent) !important; /* Color al pasar el ratón por encima */
-    transform: translateY(-2px); /* Ligeramente elevado al pasar el mouse */
+    color: var(--color-accent) !important;
+    transform: translateY(-2px);
 }
 
 .navbar-nav .nav-link.active {
-    color: var(--color-accent) !important; /* Color para el enlace activo */
+    color: var(--color-accent) !important;
     font-weight: 700;
-    border-bottom: 2px solid var(--color-accent); /* Una línea debajo del enlace activo */
+    border-bottom: 2px solid var(--color-accent);
     padding-bottom: 3px;
 }
 
-/* Estilos para los botones de acción */
+/* Estilos para los botones de acción en la navbar */
 .btn-outline-custom {
     color: var(--color-light-text);
     border-color: var(--color-light-text);
     transition: all 0.3s ease-in-out;
-    padding: 7px 18px; /* Ligeramente reducido */
-    border-radius: 20px; /* Bordes redondeados */
-    font-size: 0.95rem; /* Pequeña reducción del tamaño de fuente */
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 0.95rem;
 }
 
 .btn-outline-custom:hover {
     background-color: var(--color-light-text);
-    color: var(--color-primary-blue); /* Cambia el color del texto al pasar el ratón */
+    color: var(--color-primary-blue);
     transform: translateY(-2px);
 }
 
-.btn-custom-primary {
-    background-color: var(--color-accent);
+.btn-custom-primary { /* Este es el botón de Registro */
+    background-color: var(--color-accent); /* Usa el color de acento */
     border-color: var(--color-accent);
-    color: var(--color-dark-text); /* Texto oscuro para el botón de registro */
+    color: var(--color-dark-text); /* Texto oscuro para contraste */
     transition: all 0.3s ease-in-out;
-    padding: 7px 18px; /* Ligeramente reducido */
-    border-radius: 20px; /* Bordes redondeados */
+    padding: 7px 18px;
+    border-radius: 20px;
     font-weight: 600;
-    font-size: 0.95rem; /* Pequeña reducción del tamaño de fuente */
-    margin-right: 15px; /* Reducido el margen a la derecha de este botón */
+    font-size: 0.95rem;
+    margin-right: 15px;
 }
 
 .btn-custom-primary:hover {
-    background-color: #16A085; /* Un tono un poco más oscuro al pasar el ratón */
+    background-color: #16A085;
     border-color: #16A085;
     transform: translateY(-2px);
 }
@@ -95,19 +101,19 @@ body {
 /* Estilos para los íconos sociales */
 .social-icon {
     color: var(--color-light-text);
-    font-size: 1.4rem; /* Reducido ligeramente */
-    margin-left: 15px; /* Reducido el margen entre íconos */
+    font-size: 1.4rem;
+    margin-left: 15px;
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    white-space: nowrap; /* Evita que los iconos se rompan */
+    white-space: nowrap;
 }
 
 .social-icon:hover {
-    color: var(--color-accent); /* Color al pasar el ratón por encima */
-    transform: scale(1.1); /* Efecto de crecimiento al pasar el mouse */
+    color: var(--color-accent);
+    transform: scale(1.1);
 }
 
-/* Medias queries para manejar pantallas aún más pequeñas (desktops o tablets en modo horizontal) */
-@media (max-width: 1200px) { /* Para pantallas entre 992px (lg) y 1200px */
+/* Media Queries para la barra de navegación */
+@media (max-width: 1200px) {
     .navbar-brand .navbar-title {
         font-size: 1.6rem;
     }
@@ -126,9 +132,7 @@ body {
     }
 }
 
-/* Puedes añadir más media queries si el problema persiste en rangos específicos */
-@media (max-width: 991.98px) { /* Este es el breakpoint 'lg' de Bootstrap */
-    /* Cuando la barra se colapsa, los elementos se apilan verticalmente */
+@media (max-width: 991.98px) {
     .navbar-nav {
         margin-top: 10px;
     }
@@ -136,19 +140,202 @@ body {
         margin-bottom: 5px;
     }
     .d-flex.align-items-center {
-        flex-direction: column; /* Apila botones y redes sociales verticalmente */
+        flex-direction: column;
         align-items: flex-start !important;
         margin-top: 10px;
     }
     .btn-outline-custom,
     .btn-custom-primary {
-        width: 100%; /* Botones de ancho completo */
+        width: 100%;
         margin-right: 0 !important;
-        margin-bottom: 10px; /* Espacio entre botones */
+        margin-bottom: 10px;
     }
     .social-icon {
         margin-left: 0;
-        margin-right: 15px; /* Añade margen a la derecha para que no se peguen si están en línea */
-        margin-top: 10px; /* Espacio entre los botones y los iconos sociales */
+        margin-right: 15px;
+        margin-top: 10px;
+    }
+}
+
+/* ------------------------------------------- */
+/* ESTILOS DE LA SECCIÓN HERO (con video)      */
+/* ------------------------------------------- */
+.hero-section {
+    position: relative;
+    height: 85vh;
+    min-height: 500px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    color: var(--color-light-text);
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece el video */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero-title .highlight {
+    color: var(--color-accent);
+}
+
+.hero-subtitle {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn-hero-primary,
+.btn-hero-secondary {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hero-primary {
+    background-color: var(--color-accent);
+    color: var(--color-dark-text);
+    border: 2px solid var(--color-accent);
+}
+
+.btn-hero-primary:hover {
+    background-color: #16A085;
+    border-color: #16A085;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.btn-hero-secondary {
+    background-color: transparent;
+    color: var(--color-light-text);
+    border: 2px solid var(--color-light-text);
+}
+
+.btn-hero-secondary:hover {
+    background-color: var(--color-light-text);
+    color: var(--color-primary-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para el div de ejemplo de características */
+.icon-feature {
+    font-size: 3em;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+}
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Media Queries para Responsividad del Hero */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+    .hero-section {
+        height: auto;
+        padding: 80px 0;
+    }
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 90%;
+        font-size: 0.9rem;
+        padding: 10px 20px;
     }
 }
