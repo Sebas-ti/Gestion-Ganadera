@@ -804,3 +804,166 @@ body {
         .animate__fadeInUp {
             animation-delay: 0.2s; /* Un pequeño retraso para la animación de las tarjetas */
         }
+
+        /* ======================================= */
+/* 7. ESTILOS DE LA SECCIÓN DE ARTÍCULOS/BLOG */
+/* ======================================= */
+.articles-blog-section {
+    background-color: var(--color-light-text); /* Fondo claro para contraste */
+    color: var(--color-dark-text);
+    padding: 80px 0;
+}
+
+.articles-blog-section .section-title {
+    color: var(--color-dark-text);
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.articles-blog-section .highlight-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.articles-blog-section .highlight-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-accent);
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+/* Estilos de la tarjeta de artículo */
+.article-card {
+    display: block; /* Para que ocupe todo el espacio y el enlace funcione */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto de su padre */
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* Asegura que la imagen no se desborde al redondear */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card:hover {
+    transform: translateY(-8px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.article-image-wrapper {
+    width: 100%;
+    height: 200px; /* Altura fija para la imagen */
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.article-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para que cubra el espacio */
+    transition: transform 0.5s ease; /* Transición suave para el zoom */
+}
+
+.article-card:hover .article-image {
+    transform: scale(1.05); /* Efecto de zoom en la imagen al pasar el mouse */
+}
+
+.article-content {
+    padding: 20px;
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja la fecha al final */
+}
+
+.article-category {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-light-text);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.article-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-dark-text);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.article-excerpt {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.article-date {
+    font-size: 0.8rem;
+    color: #95a5a6; /* Gris más suave */
+    text-align: right;
+    margin-top: auto; /* Empuja la fecha al final si el contenido es variable */
+}
+
+/* Media Queries para responsividad de Artículos */
+@media (max-width: 991.98px) {
+    .articles-blog-section .section-title {
+        font-size: 2.5em;
+    }
+    .article-image-wrapper {
+        height: 180px;
+    }
+    .article-title {
+        font-size: 1.2rem;
+    }
+    .article-excerpt {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .articles-blog-section {
+        padding: 60px 0;
+    }
+    .articles-blog-section .section-title {
+        font-size: 2em;
+    }
+    .article-image-wrapper {
+        height: 160px;
+    }
+    .article-title {
+        font-size: 1.1rem;
+    }
+    .article-excerpt {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .articles-blog-section .section-title {
+        font-size: 1.8em;
+    }
+    .article-image-wrapper {
+        height: 200px; /* Podría ser un poco más alta en móviles para mejor visualización */
+    }
+    .article-card {
+        margin-bottom: 20px; /* Añade un poco de espacio entre tarjetas en móviles */
+    }
+}
