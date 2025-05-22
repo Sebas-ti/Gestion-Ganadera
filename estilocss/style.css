@@ -9,6 +9,7 @@
     --color-accent: #1ABC9C;        /* Un color turquesa/verde azulado para acentos */
     --color-gradient-start: #2A7FE6; /* Azul para el inicio del degradado de fondo (usado en login/registro, y hero overlay/fallback) */
     --color-gradient-end: #34D15E;   /* Verde para el final del degradado de fondo (usado en login/registro, y hero overlay/fallback) */
+    --color-footer-bg-blue: #1A3E63
 }
 
 /* ======================================= */
@@ -965,5 +966,500 @@ body {
     }
     .article-card {
         margin-bottom: 20px; /* Añade un poco de espacio entre tarjetas en móviles */
+    }
+}
+
+/* ======================================= */
+/* 8. ESTILOS DE LA SECCIÓN DE CONTACTO */
+/* ======================================= */
+.contact-section {
+    background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-primary-green) 100%); /* Fondo degradado */
+    padding: 80px 0;
+    color: var(--color-light-text); /* Texto claro */
+}
+
+.contact-section .section-title {
+    color: var(--color-light-text); /* Título en blanco */
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+.contact-section .highlight-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.contact-section .highlight-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 8px;
+    background-color: var(--color-accent);
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+/* Estilos de las tarjetas de información y formulario */
+.contact-info-card,
+.contact-form-card {
+    background-color: rgba(255, 255, 255, 0.15); /* Fondo semitransparente claro */
+    backdrop-filter: blur(8px); /* Efecto de cristal esmerilado */
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    /* Añadimos flexbox para que el contenido se distribuya mejor si hay un carrusel */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el espacio verticalmente */
+}
+
+.contact-info-card .info-title,
+.contact-form-card .form-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--color-light-text);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.contact-info-card .info-text {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+
+/* NUEVO: Estilo para resaltar texto en la sección de contacto */
+.highlight-contact-text {
+    color: var(--color-accent); /* Color de acento */
+    font-weight: 700; /* Negrita */
+    /* Opcional: para un efecto más "neón" o brillante */
+    /* text-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent); */
+}
+
+
+/* Detalles de contacto (lista) */
+.contact-details li {
+    margin-bottom: 20px;
+}
+
+.contact-details .contact-icon {
+    font-size: 1.8rem;
+    color: var(--color-accent); /* Iconos de acento */
+    line-height: 1.5; /* Ajusta la alineación con el texto */
+}
+
+.contact-details .detail-label {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 3px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-details p,
+.contact-details .contact-link {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none; /* Quita subrayado de enlaces */
+    transition: color 0.3s ease;
+}
+
+.contact-details .contact-link:hover {
+    color: var(--color-accent); /* Cambia color al pasar el mouse */
+}
+
+/* Iconos de redes sociales */
+.social-links .social-icon-contact {
+    color: var(--color-light-text);
+    font-size: 1.6rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links .social-icon-contact:hover {
+    color: var(--color-accent);
+    transform: scale(1.1);
+}
+
+/* NUEVO: Estilos para el carrusel de imágenes en la tarjeta de contacto */
+#contactInfoCarousel {
+    margin-top: 30px; /* Espacio superior para separar de los iconos sociales */
+    max-width: 100%; /* Asegura que no se desborde */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave para el carrusel */
+}
+
+.contact-carousel-image {
+    height: 200px; /* Altura fija para las imágenes del carrusel */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsión */
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+}
+
+#contactInfoCarousel .carousel-control-prev-icon,
+#contactInfoCarousel .carousel-control-next-icon {
+    background-color: var(--color-accent); /* Color de los botones de navegación */
+    border-radius: 50%;
+    padding: 10px; /* Tamaño del botón */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Estilos del formulario */
+.contact-form-card .form-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 5px;
+}
+
+.contact-form-card .form-control {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo del input semitransparente */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-light-text);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contact-form-card .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.25rem rgba(26, 188, 156, 0.25); /* Sombra de enfoque con color de acento */
+    color: var(--color-light-text);
+}
+
+.contact-form-card .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Color del placeholder */
+}
+
+/* Estilo para el botón de enviar (reutilizando btn-custom-primary) */
+.contact-section .btn-custom-primary {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 30px;
+}
+
+/* Estilos del Mapa (opcional) */
+.map-container {
+    border: 5px solid rgba(255, 255, 255, 0.1); /* Borde sutil alrededor del mapa */
+}
+.map-container iframe {
+    border-radius: 10px; /* Bordes redondeados para el iframe */
+}
+
+/* Media Queries para Responsividad de Contacto */
+@media (max-width: 991.98px) {
+    .contact-info-card,
+    .contact-form-card {
+        padding: 30px;
+    }
+    .contact-section .section-title {
+        font-size: 3em;
+    }
+    .contact-info-card .info-title,
+    .contact-form-card .form-title {
+        font-size: 2rem;
+    }
+    .contact-details .contact-icon {
+        font-size: 1.5rem;
+    }
+    .social-links .social-icon-contact {
+        font-size: 1.4rem;
+    }
+    /* Carrusel de contacto en info card: Ajustar altura */
+    .contact-carousel-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .contact-section {
+        padding: 60px 0;
+    }
+    .contact-section .section-title {
+        font-size: 2.5em;
+    }
+    .contact-info-card,
+    .contact-form-card {
+        margin-bottom: 25px; /* Espacio entre las tarjetas apiladas */
+    }
+    .contact-info-card .info-title,
+    .contact-form-card .form-title {
+        font-size: 1.8rem;
+    }
+    .map-container iframe {
+        height: 350px; /* Ajusta la altura del mapa en móviles */
+    }
+    /* Carrusel de contacto en info card: Ajustar altura */
+    .contact-carousel-image {
+        height: 150px;
+    }
+    /* Ocultar botones de navegación del carrusel en pantallas muy pequeñas si es necesario */
+    #contactInfoCarousel .carousel-control-prev,
+    #contactInfoCarousel .carousel-control-next {
+        display: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .contact-section .section-title {
+        font-size: 2em;
+    }
+    .contact-info-card,
+    .contact-form-card {
+        padding: 25px;
+    }
+    .contact-info-card .info-title,
+    .contact-form-card .form-title {
+        font-size: 1.6rem;
+    }
+    .contact-details .contact-icon {
+        font-size: 1.3rem;
+    }
+    .map-container iframe {
+        height: 300px;
+    }
+    /* Carrusel de contacto en info card: Ajustar altura final */
+    .contact-carousel-image {
+        height: 120px;
+    }
+}
+
+/* ======================================= */
+/* 9. ESTILOS DEL FOOTER (Pie de Página) */
+/* ======================================= */
+.main-footer {
+    background: var(--color-footer-bg-blue); /* Usando el nuevo azul oscuro para el footer */
+    color: var(--color-light-text); /* Texto claro para todo el footer */
+    padding-top: 60px;
+    padding-bottom: 30px;
+    font-family: 'Lora', serif;
+}
+
+.main-footer .footer-col {
+    margin-bottom: 30px;
+}
+
+/* Logo en el Footer */
+.main-footer .navbar-brand-footer {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-light-text); /* Color del texto del logo claro */
+    transition: color 0.3s ease;
+}
+
+.main-footer .navbar-brand-footer:hover {
+    color: var(--color-accent); /* Color de acento al pasar el mouse */
+}
+
+.main-footer .footer-logo {
+    height: 40px; /* Tamaño del logo en el footer */
+    width: auto;
+    margin-right: 10px;
+    filter: brightness(2); /* Ajusta para que el logo se vea bien en fondo oscuro. Puedes necesitar 'invert(1)' o 'brightness' */
+    /* Si tu logo original es oscuro y no se ve, considera:
+       filter: invert(1) brightness(1.5);
+       O si es un logo blanco, solo:
+       filter: none;
+       Si tu logo 'logo.png' es oscuro, es crucial ajustarlo aquí. */
+}
+
+.main-footer .logo-text-footer {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--color-light-text); /* Texto del nombre de la empresa claro */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.main-footer .footer-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7); /* Texto de descripción ligeramente transparente */
+}
+
+/* Información de contacto del footer */
+.main-footer .footer-contact-info li {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8); /* Texto de contacto claro */
+}
+
+.main-footer .footer-contact-info i {
+    color: var(--color-accent); /* Iconos de contacto con color de acento */
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+.main-footer .footer-contact-info a {
+    color: rgba(255, 255, 255, 0.8); /* Enlaces de contacto claros */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-footer .footer-contact-info a:hover {
+    color: var(--color-accent); /* Color de acento al pasar el mouse */
+}
+
+/* Enlaces sociales del footer */
+.main-footer .social-links-footer .footer-social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo del icono social semitransparente */
+    color: var(--color-light-text); /* Color del icono social claro */
+    border-radius: 50%;
+    font-size: 1.1rem;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.main-footer .social-links-footer .footer-social-icon:hover {
+    background-color: var(--color-accent); /* Color de acento al pasar el mouse */
+    color: var(--color-dark-blue); /* Color de texto/icono oscuro al pasar el mouse */
+    transform: translateY(-3px);
+}
+
+/* Encabezados del footer */
+.main-footer .footer-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--color-accent); /* Títulos de sección con color de acento */
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* Enlaces generales del footer (rápidos, legales) */
+.main-footer .footer-links li {
+    margin-bottom: 10px;
+}
+
+.main-footer .footer-links a {
+    color: rgba(255, 255, 255, 0.8); /* Enlaces de sección claros */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.main-footer .footer-links a:hover {
+    color: var(--color-accent); /* Color de acento al pasar el mouse */
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Formulario de boletín */
+.main-footer .newsletter-form .form-control {
+    background-color: rgba(255, 255, 255, 0.15); /* Fondo del input semitransparente (más visible) */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-light-text); /* Texto del input claro */
+    border-radius: 8px 0 0 8px; /* Bordes redondeados solo a la izquierda */
+}
+
+.main-footer .newsletter-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Color del placeholder claro */
+}
+
+.main-footer .newsletter-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.25); /* Fondo del input más brillante al enfocar */
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.25rem rgba(26, 188, 156, 0.25);
+}
+
+.main-footer .newsletter-form .btn-custom-primary {
+    border-radius: 0 8px 8px 0; /* Bordes redondeados solo a la derecha */
+}
+
+/* Certificaciones */
+.main-footer .certifications-logos .certification-logo {
+    max-height: 45px; /* Altura máxima de los logos de certificación */
+    width: auto;
+    filter: brightness(2) grayscale(80%); /* Ajustado para que se vean bien en fondo oscuro. Puedes necesitar 'invert(1)' si los logos son oscuros */
+    transition: filter 0.3s ease;
+}
+
+.main-footer .certifications-logos .certification-logo:hover {
+    filter: brightness(1) grayscale(0%); /* Color completo al pasar el mouse */
+}
+
+/* Divisor del footer */
+.main-footer .footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Divisor más visible */
+}
+
+/* Parte inferior del footer (copyright y mapa del sitio) */
+.main-footer .bottom-footer {
+    padding-top: 10px;
+}
+
+.main-footer .copyright-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7); /* Texto de copyright claro */
+}
+
+.main-footer .footer-sitemap-links .list-inline-item a {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7); /* Enlaces del sitemap claros */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-footer .footer-sitemap-links .list-inline-item a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+/* Media Queries para Responsividad del Footer (sin cambios sustanciales de color, solo layout) */
+@media (max-width: 767.98px) {
+    .main-footer .footer-col {
+        text-align: center;
+    }
+    .main-footer .navbar-brand-footer {
+        justify-content: center;
+    }
+    .main-footer .footer-contact-info {
+        text-align: center;
+        padding-left: 0;
+    }
+    .main-footer .footer-contact-info li {
+        justify-content: center;
+    }
+    .main-footer .social-links-footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .main-footer .footer-social-icon {
+        margin: 0 5px;
+    }
+    .main-footer .newsletter-form .input-group {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .main-footer .newsletter-form .form-control,
+    .main-footer .newsletter-form .btn-custom-primary {
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    .main-footer .newsletter-form .input-group {
+        flex-direction: column;
+    }
+    .main-footer .newsletter-form .btn {
+        width: 100%;
+    }
+    .main-footer .certifications-logos {
+        text-align: center;
+    }
+    .main-footer .certification-logo {
+        margin: 0 5px 10px;
+    }
+    .main-footer .bottom-footer .text-md-start,
+    .main-footer .bottom-footer .text-md-end {
+        text-align: center !important;
+    }
+    .main-footer .footer-sitemap-links {
+        margin-top: 10px;
     }
 }
