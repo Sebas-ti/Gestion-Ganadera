@@ -1,5 +1,5 @@
 // translations.js
-const translations = {
+window.translations = {
     es: {
         "navbar-title": "Gestión Ganadera",
         "nav-home": "Inicio",
