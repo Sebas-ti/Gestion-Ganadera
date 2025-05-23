@@ -26,45 +26,68 @@ body {
 /* 3. ESTILOS DE LA BARRA DE NAVEGACIÓN */
 /* ======================================= */
 .custom-navbar {
-    background: linear-gradient(90deg, var(--color-primary-green) 0%, var(--color-primary-blue) 100%) !important; /* Degradado de verde a azul (¡importante para asegurar prevalencia!) */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra más pronunciada para un efecto flotante */
+    background: linear-gradient(90deg, var(--color-primary-green) 0%, var(--color-primary-blue) 100%) !important; /* MANTENIDO: Degradado de verde a azul */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* MANTENIDO: Sombra pronunciada */
+    padding: 0.5rem 0.5rem; /* AJUSTADO: Menos padding general para más espacio vertical */
 }
+
+/* Scroll effect (si lo usas, asegúrate de que el JavaScript esté presente) */
+.custom-navbar.scrolled {
+    /* Si quieres un efecto de scroll, considera un fondo ligeramente más translúcido o una sombra diferente */
+    /* Ejemplo: */
+    background: linear-gradient(90deg, rgba(52, 209, 94, 0.95) 0%, rgba(42, 127, 230, 0.95) 100%) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
 
 .navbar-brand .navbar-title {
-    font-family: 'Bebas Neue', sans-serif; /* Fuente llamativa para el título */
-    color: var(--color-light-text); /* Color de texto claro para contraste */
-    font-size: 1.75rem; /* Reducido ligeramente para ahorrar espacio */
-    margin-left: 8px; /* Reducido ligeramente */
-    letter-spacing: 1px; /* Ligeramente reducido */
-    white-space: nowrap; /* Evita que el título se rompa en varias líneas */
+    font-family: 'Bebas Neue', sans-serif;
+    color: var(--color-light-text); /* MANTENIDO: Color de texto claro */
+    font-size: 1.5rem; /* AJUSTADO: Reducido a 1.5rem para el título */
+    margin-left: 5px; /* AJUSTADO: Reducido a 5px */
+    letter-spacing: 0.8px; /* AJUSTADO: Ligeramente reducido a 0.8px */
+    white-space: nowrap; /* MANTENIDO: Evita que el título se rompa */
 }
 
+.navbar-brand img { /* Apunta directamente a la imagen dentro del navbar-brand */
+    height: 40px; /* AJUSTADO: Tamaño del logo a 40px */
+    width: 40px; /* Para mantener la proporción cuadrada */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+    /* Si tu logo original es oscuro y no se ve sobre el degradado, podrías necesitar un filtro: */
+    /* filter: brightness(2) drop-shadow(0 0 3px rgba(0,0,0,0.3)); */
+}
+
+
 .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.5); /* Borde claro para el botón del toggler */
+    border-color: rgba(255, 255, 255, 0.5); /* MANTENIDO: Borde claro para el toggler */
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Icono del toggler blanco */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* MANTENIDO: Icono del toggler blanco */
 }
 
 
 .navbar-nav .nav-link {
-    color: var(--color-light-text) !important; /* Color de texto para los enlaces */
+    color: var(--color-light-text) !important; /* MANTENIDO: Color de texto para los enlaces */
     font-weight: 500;
-    margin-right: 15px; /* Reducido para ahorrar espacio */
-    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Transición suave para hover y un pequeño efecto de escala */
-    white-space: nowrap; /* Evita que los enlaces de navegación se rompan */
+    padding: 0.5rem 0.6rem; /* AJUSTADO: Menos padding para los enlaces de navegación */
+    margin: 0 3px; /* AJUSTADO: Menos margen entre enlaces */
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    white-space: nowrap; /* MANTENIDO: Evita que los enlaces de navegación se rompan */
+    font-size: 0.95rem; /* AJUSTADO: Unificar el tamaño de fuente para un mejor control */
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--color-accent) !important; /* Color al pasar el ratón por encima */
-    transform: translateY(-2px); /* Ligeramente elevado al pasar el mouse */
+    color: var(--color-accent) !important; /* MANTENIDO: Color al pasar el ratón */
+    transform: translateY(-2px);
 }
 
 .navbar-nav .nav-link.active {
-    color: var(--color-accent) !important; /* Color para el enlace activo */
+    color: var(--color-accent) !important; /* MANTENIDO: Color para el enlace activo */
     font-weight: 700;
-    border-bottom: 2px solid var(--color-accent); /* Una línea debajo del enlace activo */
+    border-bottom: 2px solid var(--color-accent); /* MANTENIDO: Línea debajo del enlace activo */
     padding-bottom: 3px;
 }
 
@@ -73,108 +96,190 @@ body {
     color: var(--color-light-text);
     border-color: var(--color-light-text);
     transition: all 0.3s ease-in-out;
-    padding: 7px 18px; /* Ligeramente reducido */
-    border-radius: 20px; /* Bordes redondeados */
-    font-size: 0.95rem; /* Pequeña reducción del tamaño de fuente */
+    padding: 0.3rem 0.8rem; /* AJUSTADO: Reducido a 0.3rem 0.8rem */
+    border-radius: 20px;
+    font-size: 0.85rem; /* AJUSTADO: Reducido a 0.85rem */
+    white-space: nowrap; /* Añadido: Evita que el texto se rompa */
 }
 
 .btn-outline-custom:hover {
     background-color: var(--color-light-text);
-    color: var(--color-primary-blue); /* Cambia el color del texto al pasar el ratón */
+    color: var(--color-primary-blue);
     transform: translateY(-2px);
 }
 
 .btn-custom-primary {
     background-color: var(--color-accent);
     border-color: var(--color-accent);
-    color: var(--color-dark-text); /* Texto oscuro para el botón de registro */
+    color: var(--color-dark-text);
     transition: all 0.3s ease-in-out;
-    padding: 7px 18px; /* Ligeramente reducido */
-    border-radius: 20px; /* Bordes redondeados */
+    padding: 0.3rem 0.8rem; /* AJUSTADO: Reducido a 0.3rem 0.8rem */
+    border-radius: 20px;
     font-weight: 600;
-    font-size: 0.95rem; /* Pequeña reducción del tamaño de fuente */
-    margin-right: 15px; /* Reducido el margen a la derecha de este botón */
+    font-size: 0.85rem; /* AJUSTADO: Reducido a 0.85rem */
+    margin-right: 10px; /* AJUSTADO: Reducido a 10px (tu tenías 15px) */
+    white-space: nowrap; /* Añadido: Evita que el texto se rompa */
 }
 
 .btn-custom-primary:hover {
-    background-color: #16A085; /* Un tono un poco más oscuro al pasar el ratón */
+    background-color: #16A085;
     border-color: #16A085;
     transform: translateY(-2px);
 }
 
+/* Estilos para el dropdown de idioma (BI-GLOBE) */
+.custom-navbar .dropdown .btn-outline-light {
+    color: var(--color-light-text); /* Color del texto del botón dropdown (claro) */
+    border-color: rgba(255, 255, 255, 0.5); /* Borde claro */
+    background-color: transparent; /* Fondo transparente */
+    padding: 0.3rem 0.6rem; /* AJUSTADO: Padding reducido */
+    font-size: 0.85rem; /* AJUSTADO: Tamaño de fuente reducido */
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.custom-navbar .dropdown .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente al hover */
+    color: var(--color-light-text);
+    border-color: var(--color-light-text);
+}
+
+.custom-navbar .dropdown .btn-outline-light .bi { /* Apunta directamente a los íconos de Bootstrap */
+    font-size: 1.1em; /* Tamaño del icono de globo */
+    margin-right: 5px;
+}
+
+.custom-navbar .dropdown-menu-dark { /* Menú de idioma con fondo oscuro */
+    background-color: var(--color-dark-blue);
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    min-width: unset; /* Permite que el ancho se ajuste al contenido */
+}
+
+.custom-navbar .dropdown-menu-dark .dropdown-item {
+    color: var(--color-light-text);
+    padding: 8px 15px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.custom-navbar .dropdown-menu-dark .dropdown-item:hover,
+.custom-navbar .dropdown-menu-dark .dropdown-item.active {
+    background-color: var(--color-accent);
+    color: var(--color-dark-blue);
+}
+
+
 /* Estilos para los íconos sociales en la navbar */
 .social-icon {
-    color: var(--color-light-text);
-    font-size: 1.4rem; /* Reducido ligeramente */
-    margin-left: 15px; /* Reducido el margen entre íconos */
+    color: var(--color-light-text); /* MANTENIDO: Color de texto claro */
+    font-size: 1.25rem; /* AJUSTADO: Reducido a 1.25rem */
+    margin-left: 10px; /* AJUSTADO: Reducido a 10px */
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    white-space: nowrap; /* Evita que los iconos se rompan */
+    white-space: nowrap; /* MANTENIDO: Evita que los iconos se rompan */
 }
 
 .social-icon:hover {
-    color: var(--color-accent); /* Color al pasar el ratón por encima */
-    transform: scale(1.1); /* Efecto de crecimiento al pasar el mouse */
+    color: var(--color-accent);
+    transform: scale(1.1);
 }
 
 /* Media Queries para la barra de navegación */
 @media (max-width: 1200px) { /* Para pantallas entre 992px (lg) y 1200px */
     .navbar-brand .navbar-title {
-        font-size: 1.6rem;
+        font-size: 1.4rem; /* AJUSTADO: Más pequeño para pantallas medianas-grandes */
+    }
+    .navbar-brand img {
+        height: 35px;
+        width: 35px;
     }
     .navbar-nav .nav-link {
-        margin-right: 12px;
-        font-size: 0.95rem;
+        padding: 0.5rem 0.5rem; /* AJUSTADO: Más pequeño aún */
+        margin: 0 2px; /* AJUSTADO: Margen más pequeño */
+        font-size: 0.9rem; /* AJUSTADO: Tamaño de fuente más pequeño */
     }
     .btn-outline-custom,
-    .btn-custom-primary {
-        padding: 6px 15px;
-        font-size: 0.9rem;
+    .btn-custom-primary,
+    .custom-navbar .dropdown .btn-outline-light { /* Incluir el botón de idioma */
+        padding: 5px 12px; /* AJUSTADO: Más pequeño */
+        font-size: 0.8rem; /* AJUSTADO: Más pequeño */
     }
     .social-icon {
-        font-size: 1.3rem;
-        margin-left: 12px;
+        font-size: 1.15rem; /* AJUSTADO: Más pequeño */
+        margin-left: 8px; /* AJUSTADO: Margen más pequeño */
     }
 }
 
-@media (max-width: 991.98px) { /* Este es el breakpoint 'lg' de Bootstrap */
+@media (max-width: 991.98px) { /* Este es el breakpoint 'lg' de Bootstrap para menú colapsado */
     .navbar-nav {
         margin-top: 10px;
     }
     .navbar-nav .nav-item {
         margin-bottom: 5px;
     }
-    .d-flex.align-items-center {
-        flex-direction: column; /* Apila botones y redes sociales verticalmente */
-        align-items: flex-start !important;
-        margin-top: 10px;
+    .d-flex.align-items-center { /* El div que contiene los botones y sociales */
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center !important; /* Centra los elementos */
+        width: 100%;
+        margin-top: 15px;
     }
     .btn-outline-custom,
     .btn-custom-primary {
-        width: 100%; /* Botones de ancho completo */
+        width: 90%; /* Botones de ancho casi completo */
         margin-right: 0 !important;
-        margin-bottom: 10px; /* Espacio entre botones */
+        margin-bottom: 10px;
+        font-size: 0.95rem; /* Restaurar tamaño en móvil */
+        padding: 8px 15px; /* Restaurar padding en móvil */
+    }
+    .custom-navbar .dropdown { /* El contenedor del dropdown de idioma */
+        width: 90%;
+        margin-bottom: 10px;
+    }
+    .custom-navbar .dropdown .btn-outline-light {
+        width: 100%; /* Botón de idioma ocupa todo el ancho */
+        justify-content: center; /* Centra el contenido del botón */
+        font-size: 0.95rem; /* Restaurar tamaño en móvil */
+        padding: 8px 15px; /* Restaurar padding en móvil */
     }
     .social-icon {
-        margin-left: 0;
-        margin-right: 15px; /* Añade margen a la derecha para que no se peguen si están en línea */
-        margin-top: 10px; /* Espacio entre los botones y los iconos sociales */
+        margin: 0 10px 10px; /* Centra los iconos y añade espacio inferior */
+        font-size: 1.5rem; /* Iconos más grandes en móvil */
+    }
+}
+
+@media (max-width: 767.98px) { /* Breakpoint 'md' de Bootstrap (generalmente para tablets pequeñas y móviles) */
+    .navbar-brand .navbar-title {
+        font-size: 1.3rem; /* Más pequeño para móviles */
+    }
+    .navbar-brand img {
+        height: 30px;
+        width: 30px;
     }
 }
 
 /* ======================================= */
-/* 4. ESTILOS DE LA SECCIÓN HERO        */
+/* 4. ESTILOS DE LA SECCIÓN HERO         */
 /* ======================================= */
 .hero-section {
-    position: relative; /* Esencial para posicionar el video y el overlay */
-    height: 85vh; /* Altura de la sección hero (85% del viewport height) */
-    min-height: 500px; /* Altura mínima para pantallas pequeñas */
-    padding: 0; /* Quitamos el padding para que el video ocupe todo el espacio */
+    position: relative;
+    /* AJUSTADO: Cambiado de 'height' fijo a 'min-height: 100vh' para asegurar que siempre cubra toda la pantalla al cargar */
+    min-height: 100vh;
+    /* MANTENIDO: min-height para pantallas pequeñas (útil si 100vh es muy poco en algunos móviles) */
+    min-height: 500px; /* Asegura un mínimo de altura si la ventana es muy pequeña */
+    
+    /* AJUSTADO: Agregado padding-top para compensar la altura de la navbar fija y eliminar el espacio blanco */
+    /* Este valor (80px) es una estimación. Si tu navbar es más alta o más baja, ajústalo. */
+    padding-top: 0px; 
+    
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    overflow: hidden; /* Muy importante para que el video no se desborde */
-    color: var(--color-light-text); /* Aseguramos que el texto sea claro */
+    overflow: hidden;
+    color: var(--color-light-text);
 }
 
 .video-background {
@@ -183,8 +288,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Asegura que el video se recorte a la sección */
-    z-index: 0; /* Detrás del contenido y el overlay */
+    overflow: hidden;
+    z-index: 0; /* MANTENIDO: Detrás del contenido y el overlay */
 }
 
 .video-background video {
@@ -195,8 +300,10 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centra el video */
-    object-fit: cover; /* Asegura que el video cubra todo el espacio sin distorsión */
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    /* OPCIONAL: Si el video es MUY brillante, puedes oscurecerlo un poco directamente */
+    /* filter: brightness(0.8); */ 
 }
 
 .overlay {
@@ -205,56 +312,65 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Capa oscura semi-transparente para el contraste */
-    z-index: 1; /* Encima del video, debajo del contenido */
+    /* AJUSTADO: Opacidad ligeramente mayor para mejor contraste del texto y botones */
+    background-color: rgba(0, 0, 0, 0.6); /* Tu tenías 0.5, cambié a 0.6 */
+    z-index: 1;
 }
 
 .hero-content {
-    position: relative; /* Asegura que el contenido esté por encima del overlay */
-    z-index: 2; /* Mayor que el overlay */
+    position: relative;
+    z-index: 2;
 }
 
 .hero-title {
-    font-family: 'Bebas Neue', sans-serif; /* Consistencia con el título de la navbar */
-    font-size: 4.5rem; /* Tamaño de fuente grande para el título */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem; /* MANTENIDO: Tu tamaño de fuente grande */
     font-weight: 700;
     margin-bottom: 25px;
     line-height: 1.1;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Sombra más oscura para el texto sobre el video */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* MANTENIDO: Tu sombra de texto */
 }
 
 .hero-title .highlight {
-    color: var(--color-accent); /* Color de acento para palabras clave */
+    color: var(--color-accent);
 }
 
 .hero-subtitle {
-    font-family: 'Lora', serif; /* Una fuente más legible para el subtítulo */
-    font-size: 1.5rem;
+    font-family: 'Lora', serif;
+    font-size: 1.5rem; /* MANTENIDO: Tu tamaño de subtítulo */
     font-weight: 400;
     margin-bottom: 40px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para el subtítulo */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* MANTENIDO: Tu sombra de subtítulo */
 }
 
 .btn-hero-primary,
 .btn-hero-secondary {
-    padding: 15px 35px;
-    border-radius: 50px; /* Botones más redondeados */
+    padding: 15px 35px; /* MANTENIDO: Tu padding para botones grandes */
+    border-radius: 50px;
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    text-transform: uppercase; /* Texto en mayúsculas */
+    text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* MANTENIDO: Tu sombra de botón */
+}
+
+.btn-hero-primary {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-dark-text); /* Tu color de texto oscuro */
+    /* AJUSTADO: Añadida una sombra de texto sutil para el botón primario, si el texto se pierde */
+    /* text-shadow: 1px 1px 2px rgba(0,0,0,0.2); */ 
 }
 
 .btn-hero-primary:hover {
-    background-color: #16A085; /* Tono más oscuro al pasar el ratón */
+    background-color: #16A085;
     border-color: #16A085;
-    transform: translateY(-3px); /* Efecto de elevación */
+    transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
@@ -266,13 +382,17 @@ body {
 
 .btn-hero-secondary:hover {
     background-color: var(--color-light-text);
-    color: var(--color-primary-blue); /* Cambia al azul del logo al pasar el ratón */
+    color: var(--color-primary-blue);
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Media Queries para Responsividad del Hero */
-@media (max-width: 992px) {
+@media (max-width: 992px) { /* Tu breakpoint original de 992px */
+    .hero-section {
+        min-height: 85vh; /* Mantenemos 85vh aquí si quieres que siga ocupando la mayoría de la pantalla en tablets */
+        padding-top: 70px; /* Ajuste para la navbar en este breakpoint */
+    }
     .hero-title {
         font-size: 3.5rem;
     }
@@ -286,7 +406,12 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* Tu breakpoint original de 768px */
+    .hero-section {
+        /* AJUSTADO: Eliminamos height: auto y volvemos a min-height para asegurar que cubra la pantalla en móvil */
+        min-height: 100vh; /* Para móviles, queremos que cubra toda la pantalla verticalmente */
+        padding-top: 60px; /* Ajuste para la navbar en móviles pequeños, podría ser menor */
+    }
     .hero-title {
         font-size: 2.8rem;
     }
@@ -294,24 +419,20 @@ body {
         font-size: 1.1rem;
         margin-bottom: 30px;
     }
-    .hero-section {
-        height: auto; /* Altura automática en móviles */
-        padding: 80px 0;
-    }
     .hero-buttons {
         display: flex;
-        flex-direction: column; /* Apila los botones verticalmente */
-        gap: 15px; /* Espacio entre botones */
+        flex-direction: column;
+        gap: 15px;
     }
     .btn-hero-primary,
     .btn-hero-secondary {
-        width: 80%; /* Ancho para los botones apilados */
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 576px) { /* Tu breakpoint original de 576px */
     .hero-title {
         font-size: 2rem;
     }
@@ -323,6 +444,10 @@ body {
         width: 90%;
         font-size: 0.9rem;
         padding: 10px 20px;
+    }
+    /* Asegurar que los botones no tengan margin-right extra de Bootstrap en móvil */
+    .hero-buttons .me-3 {
+        margin-right: 0 !important;
     }
 }
 
