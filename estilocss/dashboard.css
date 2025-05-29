@@ -84,22 +84,22 @@
 #sidebar-wrapper .list-group-item {
     border: none;
     padding: 1rem 1.5rem;
-    color: var(--color-light-text); /* Color de texto claro para los enlaces */
+    color: var(--color-dark-text); /* <--- CAMBIADO AQUÍ: Usamos el color de texto oscuro */
     font-weight: 500;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease-in-out;
-    background-color: transparent; /* Asegura que el fondo sea transparente */
-    font-size: 0.95rem; /* Consistente con el tamaño de los links de la navbar */
+    background-color: transparent;
+    font-size: 0.95rem;
 }
 
 #sidebar-wrapper .list-group-item i { /* Estilo para los íconos de Font Awesome */
-    color: rgba(255, 255, 255, 0.9); /* Iconos ligeramente más claros */
+    color: var(--color-dark-text); /* <--- CAMBIADO AQUÍ: Íconos también oscuros */
     transition: color 0.3s ease;
 }
 
 #sidebar-wrapper .list-group-item:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Un fondo semitransparente al pasar el ratón */
-    color: var(--color-accent) !important; /* Color de acento al pasar el ratón */
-    transform: translateX(5px); /* Pequeño desplazamiento al pasar el ratón */
+    background-color: rgba(0, 0, 0, 0.1); /* Un fondo oscuro ligeramente transparente al pasar el ratón para contraste */
+    color: var(--color-accent) !important; /* El color de acento para el texto al pasar el ratón */
+    transform: translateX(5px);
 }
 
 #sidebar-wrapper .list-group-item:hover i {
@@ -107,11 +107,11 @@
 }
 
 #sidebar-wrapper .list-group-item.active {
-    background-color: rgba(0, 0, 0, 0.2); /* Fondo más oscuro para el activo */
-    color: var(--color-accent) !important; /* Color de acento para el activo */
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo más oscuro y visible para el elemento activo */
+    color: var(--color-accent) !important; /* Color de acento para el texto del elemento activo */
     font-weight: 700;
-    border-left: 5px solid var(--color-accent); /* Línea de acento a la izquierda */
-    padding-left: calc(1.5rem - 5px); /* Ajustar el padding para la línea */
+    border-left: 5px solid var(--color-accent);
+    padding-left: calc(1.5rem - 5px);
 }
 
 #sidebar-wrapper .list-group-item.active i {
